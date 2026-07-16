@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Ahmed Luqman | Portfolio</title>
+    
+    <!-- Favicon SVG using student initials -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='60' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle' alignment-baseline='middle'%3EML%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts: Playfair Display (Serif) & Source Sans Pro (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Source Sans 3"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            950: '#090d16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .timeline-line {
+            background: linear-gradient(to bottom, #6366f1 0%, #4f46e5 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0d1527;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #312e81;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+        /* Smooth transitions for node filtering */
+        .timeline-node {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .timeline-node.hidden-node {
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            position: absolute;
+            pointer-events: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white custom-scrollbar">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-950/85 backdrop-blur-md border-b border-indigo-950/40">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="group flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center text-white font-serif font-bold text-lg shadow-lg shadow-brand-500/10 group-hover:scale-105 transition-transform">
+                    MAL
+                </span>
+                <span class="font-serif font-bold tracking-wide text-lg text-slate-100 group-hover:text-brand-300 transition-colors">
+                    Mohd Ahmed Luqman
+
+                </span>
+            </a>
+            
+            <!-- Quick Contact links -->
+            <div class="flex items-center gap-5">
+                <a href="#contact" class="hidden sm:inline-flex text-sm text-slate-400 hover:text-white transition-colors duration-200">
+                    Get in Touch
+                </a>
+                <a href="#projects" class="px-5 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 hover:bg-brand-500 hover:border-brand-500 text-brand-300 hover:text-white text-sm font-semibold transition-all duration-300 shadow-md shadow-brand-500/5">
+                    View Projects
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Abstract gradient backgrounds -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/[0.03] rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/5 mb-8 animate-fade-in">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-indigo-300">Available for Opportunities</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-black text-slate-100 tracking-tight leading-[1.1] mb-6">
+                Mohd Ahmed <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-violet-400 bg-clip-text text-transparent">Luqman</span>
+            </h1>
+
+            <!-- Tagline -->
+            <p class="text-xl md:text-2xl font-light text-indigo-200/90 tracking-wide mb-8 max-w-2xl mx-auto">
+                Computer Science Undergraduate specializing in Cybersecurity & Full-Stack Systems
+            </p>
+
+            <!-- Short visual bio -->
+            <p class="text-base md:text-lg text-slate-400 leading-relaxed max-w-3xl mx-auto mb-12">
+                I enjoy solving complex architectural problems and crafting resilient, real-world web applications. Driven by a robust background in Data Structures and Algorithms, I turn code optimization challenges into functional, elegant full-stack solutions.
+            </p>
+
+            <!-- Quick Action & Dynamic Coding Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+                <a href="#projects" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transform hover:-translate-y-0.5 transition-all">
+                    Explore Projects
+                </a>
+                <a href="#skills" class="px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold transition-all">
+                    Skills Matrix
+                </a>
+            </div>
+
+            <!-- Coding profiles ribbon -->
+            <div class="pt-8 border-t border-slate-900 max-w-2xl mx-auto">
+                <p class="text-xs uppercase tracking-widest text-slate-500 mb-6 font-semibold">Verified Online Profiles & Handles</p>
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                    <a href="https://github.com/AhmedLuqman-dev" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.16 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        <span class="text-sm font-medium">GitHub</span>
+                    </a>
+                    <a href="https://leetcode.com/mohdahmedluqmanz" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                        <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.77 9.77a1.375 1.375 0 0 0 0 1.942l9.77 9.77a1.375 1.375 0 0 0 1.942 0l9.77-9.77a1.375 1.375 0 0 0 0-1.942l-9.77-9.77A1.374 1.374 0 0 0 13.483 0zm0 2.138l8.358 8.358c.264.264.264.692 0 .956l-8.358 8.358a.676.676 0 0 1-.956 0l-8.358-8.358a.676.676 0 0 1 0-.956l8.358-8.358a.676.676 0 0 1 .956 0zM5.38 12.012a.675.675 0 0 0-.476.198l-.756.756a.676.676 0 0 0 0 .956l2.106 2.106a.676.676 0 0 0 .956 0l.756-.756a.676.676 0 0 0 0-.956L5.856 12.21a.675.675 0 0 0-.476-.198z"/></svg>
+                        <span class="text-sm font-medium">LeetCode</span>
+                    </a>
+                    <a href="https://codechef.com/ahmed_luqman" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-600 group-hover:scale-110 transition-transform"></span>
+                        <span class="text-sm font-medium">CodeChef</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohd-ahmed-luqman-384b86363" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
+                        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span class="text-sm font-medium">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-brand-950/40 relative border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-extrabold text-slate-100 mb-4">
+                    Technical Expertise
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-indigo-500 mx-auto rounded"></div>
+                <p class="text-slate-400 mt-4 max-w-xl mx-auto">Core frameworks, specialized databases, cybersecurity platforms, and development languages in my scope.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Group 1 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-brand-500/30 hover:bg-slate-900 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full blur-xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-300 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-100 mb-4">Languages & Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Java</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">C Language</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">MySQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Group 2 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-brand-500/30 hover:bg-slate-900 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full blur-xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-300 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-100 mb-4">Web Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">React.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Express</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">HTML5 / CSS3</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Group 3 -->
+                <div class="bg-slate-900/60 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-brand-500/30 hover:bg-slate-900 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full blur-xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-300 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-100 mb-4">Tools & Platforms</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Git / GitHub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">VS Code</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Postman</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Supabase</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Streamlit</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-300 text-sm border border-slate-800">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 relative overflow-hidden bg-brand-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-extrabold text-slate-100 mb-4">
+                    Featured Projects
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-indigo-500 mx-auto rounded"></div>
+                <p class="text-slate-400 mt-4 max-w-xl mx-auto">Real-world full-stack builds, emphasizing system architecture and interactive functionality.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: CodeMultia -->
+                <div class="bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 p-8 rounded-3xl transition-all duration-300 shadow-lg group hover:border-brand-500/30 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Collaboration Tool</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800">2024-2025</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-slate-100 mb-3 group-hover:text-brand-300 transition-colors">CodeMultia</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Developed a collaborative coding platform supporting 5+ programming languages. Integrated Monaco Editor, Judge API, and WebSockets to enable live synchronous code compilation.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">React</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Node.js</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Socket.IO</span>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://github.com/AhmedLuqman-dev/CodeMultia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.16 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: EduRPG -->
+                <div class="bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 p-8 rounded-3xl transition-all duration-300 shadow-lg group hover:border-brand-500/30 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Ed-Tech Platform</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800">2024</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-slate-100 mb-3 group-hover:text-brand-300 transition-colors">EduRPG</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Constructed a gamified education ecosystem covering 3 core academic disciplines with 15+ quests, progress markers, parent monitoring systems, and authenticated pathways.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">React</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Supabase</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">SQL</span>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://github.com/AhmedLuqman-dev/EduRPG" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.16 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: RealTime Chat App -->
+                <div class="bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800/80 p-8 rounded-3xl transition-all duration-300 shadow-lg group hover:border-brand-500/30 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl -z-10 group-hover:bg-brand-500/10 transition-all"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Communication</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800">2023</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-slate-100 mb-3 group-hover:text-brand-300 transition-colors">RealTime Chat Engine</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Engineered a dynamic multi-room messenger platform supporting concurrent user sessions, instant bidirectional stream transfers, and clean UI responsiveness utilizing robust architectural layouts.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Node.js</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">React</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Socket.IO</span>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://github.com/AhmedLuqman-dev/RealTime-Chat-app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.16 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-24 relative overflow-hidden bg-brand-950/40 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-extrabold text-slate-100 mb-4">
+                    Certifications
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-indigo-500 mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Cert 1: NPTEL -->
+                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex items-start gap-5 hover:bg-slate-900/70 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0 mt-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-slate-100 mb-1">Advanced DSA</h3>
+                        <p class="text-brand-400 text-sm font-medium mb-3">NPTEL • 2025</p>
+                        <ul class="text-slate-400 text-sm space-y-1.5">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Data Structures and Algorithms
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Design and Analysis of Algorithms
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cert 2: Oracle -->
+                <div class="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex items-start gap-5 hover:bg-slate-900/70 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0 mt-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-slate-100 mb-1">Oracle Credentials</h3>
+                        <p class="text-indigo-400 text-sm font-medium mb-3">Oracle • 2024</p>
+                        <ul class="text-slate-400 text-sm space-y-1.5">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Java Object Oriented Programming
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> MySQL Database Management System
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-24 relative overflow-hidden border-t border-slate-900 bg-brand-950">
+        <div class="absolute top-10 left-10 w-96 h-96 bg-brand-500/[0.02] rounded-full blur-3xl -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-extrabold text-slate-100 mb-4">
+                    Education Journey
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-indigo-500 mx-auto rounded"></div>
+                <p class="text-slate-400 mt-4 max-w-xl mx-auto">Academic path and foundational studies.</p>
+            </div>
+
+            <!-- Vertical Timeline Track -->
+            <div class="relative pl-6 sm:pl-12 border-l-2 border-slate-800 ml-4 sm:ml-6 pb-4">
+                <!-- Glowing Progress Indicator Line -->
+                <div id="glowing-timeline-bar" class="absolute top-0 left-[-2px] w-[2px] bg-gradient-to-b from-brand-400 via-indigo-500 to-transparent origin-top transition-all duration-300" style="height: 0%;"></div>
+
+                <!-- ITEM 1: B.Tech Education Enrollment -->
+                <div class="timeline-node mb-16 relative">
+                    <span class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-brand-950/90 z-10 flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                    </span>
+                    <div class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 rounded-full bg-brand-500/50 animate-ping z-0"></div>
+                    
+                    <div class="bg-slate-900/40 hover:bg-slate-900/70 border border-slate-800/80 p-6 md:p-8 rounded-2xl transition-all shadow-md group">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Engineering Degree</span>
+                            <span class="text-xs font-medium text-slate-500 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800">2023 - 2027</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-100 mb-1 group-hover:text-brand-300 transition-colors">Geethanjali College of Engineering & Technology</h3>
+                        <p class="text-indigo-300 text-sm mb-3">B.Tech in Computer Science and Engineering (Cybersecurity)</p>
+                        <p class="text-slate-400 text-sm mb-4">Actively studying core security parameters, network engineering, and complex computational design paradigms.</p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-950 text-slate-300 text-xs font-semibold border border-slate-800">
+                            <span>Current CGPA: 8.6 / 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: High School / Intermediate -->
+                <div class="timeline-node relative">
+                    <span class="absolute -left-[31px] sm:-left-[55px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-brand-950/90 z-10 flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                    </span>
+                    
+                    <div class="bg-slate-900/40 hover:bg-slate-900/70 border border-slate-800/80 p-6 md:p-8 rounded-2xl transition-all shadow-md group">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Intermediate MPC</span>
+                            <span class="text-xs font-medium text-slate-500 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800">2021 - 2023</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-100 mb-1 group-hover:text-brand-300 transition-colors">Toppers Junior College</h3>
+                        <p class="text-indigo-300 text-sm mb-3">TSBIE, Hyderabad</p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-950 text-slate-300 text-xs font-semibold border border-slate-800">
+                            <span>Score: 95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-brand-950 to-slate-950 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-500/5 rounded-full blur-2xl"></div>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-3 block">Milestones</span>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-100 mb-4">Competitive Coding & Contests</h2>
+                        <p class="text-slate-400 leading-relaxed mb-6">
+                            My continuous challenge matrix focuses on expanding technical logic thresholds on diverse competitive arenas.
+                        </p>
+                        <div class="flex gap-4">
+                            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                                <p class="text-3xl font-black text-white font-serif">300+</p>
+                                <p class="text-xs text-slate-400 uppercase mt-1 tracking-wider">Solved Problems</p>
+                            </div>
+                            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                                <p class="text-3xl font-black text-white font-serif">Top 10</p>
+                                <p class="text-xs text-slate-400 uppercase mt-1 tracking-wider">Contest Ranks in College</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-950/40 border border-slate-800/60 flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-300 mt-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Advanced Algorithm Practice</h4>
+                                <p class="text-sm text-slate-400">Actively competing across platforms including LeetCode, CodeChef, and Codeforces.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-950/40 border border-slate-800/60 flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-300 mt-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Collaborative Hackathons</h4>
+                                <p class="text-sm text-slate-400">Regular campus and national hackathon presence collaborating with multi-functional teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-950 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-5xl font-extrabold text-slate-100 mb-4">
+                Let's Build Together
+            </h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-indigo-500 mx-auto rounded mb-8"></div>
+            <p class="text-slate-400 max-w-xl mx-auto mb-12 text-base md:text-lg">
+                Seeking modern technical integration support, full-stack engineering, or security-focused research development? Let's connect.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-16">
+                <!-- Direct Email -->
+                <a href="mailto:ahmedluqman680@gmail.com" class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-brand-500/40 text-slate-200 hover:text-white transition-all group">
+                    <span class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-300 group-hover:scale-105 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </span>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Email Directly</p>
+                        <p class="text-sm font-medium">ahmedluqman680@gmail.com</p>
+                    </div>
+                </a>
+
+                <!-- Phone Line -->
+                <a href="tel:+917993511641" class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-brand-500/40 text-slate-200 hover:text-white transition-all group">
+                    <span class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-300 group-hover:scale-105 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    </span>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Call Me</p>
+                        <p class="text-sm font-medium">+91-7993511641</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Footer Meta -->
+            <p class="text-xs text-slate-600">
+                &copy; 2026 Mohd Ahmed Luqman. Generated programmatically. Built using semantic microdata & native interactive JS elements.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Timeline Glowing bar indicator implementation based on scrolling depth
+        window.addEventListener('scroll', () => {
+            const timelineSection = document.getElementById('education');
+            const glowBar = document.getElementById('glowing-timeline-bar');
+            
+            if (timelineSection && glowBar) {
+                const rect = timelineSection.getBoundingClientRect();
+                const sectionHeight = timelineSection.clientHeight;
+                
+                // Calculate percentage progress inside the timeline area
+                let visiblePercentage = 0;
+                if (rect.top <= window.innerHeight) {
+                    const scrolledDistance = Math.max(0, -rect.top + (window.innerHeight / 2));
+                    visiblePercentage = Math.min(100, (scrolledDistance / (sectionHeight - window.innerHeight / 2)) * 100);
+                }
+                glowBar.style.height = `${visiblePercentage}%`;
+            }
+        });
+    </script>
+</body>
+</html>
